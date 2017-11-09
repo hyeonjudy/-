@@ -1,0 +1,266 @@
+create table customer(
+	id varchar2(10) primary key,
+	pw varchar2(15) not null,
+	gender varchar2(10) not null,
+	constraint check_gender check (gender in('남','여')),
+	age number(10) not null,
+	skintype varchar2(20) not null,
+	constraint check_skintype check (skintype in('건성','지성','민감성')),
+	selectedfuc1 varchar2(20),
+	constraint check_selectedfuc1 check (selectedfuc1 in('미백','수분','탄력','트러블')),
+	selectedfuc2 varchar2(20),
+	constraint check_selectedfuc2 check (selectedfuc2 in('미백','수분','탄력','트러블'))
+);
+
+create table component(
+	cname varchar2(100) primary key,
+	details varchar2(500) not null,
+	dangerNum number(2) not null,
+	constraint check_dangerNum check(dangerNum in(0,1,2,3,4,5,6,7,8,9,10)),
+	danger varchar2(15),
+	constraint check_danger check(danger in('정보없음','낮은위험도','중간위험도','높은위험도')),
+	isdry varchar2(1) not null,
+	constraint check_isdry check(isdry in ('O', 'X', '?')),
+	isoily varchar2(1) not null,
+	constraint check_isoily check(isoily in ('O', 'X', '?')),
+	issensitive varchar2(1) not null,
+	constraint check_issensitive check(issensitive in ('O', 'X', '?')),
+	typedetails varchar2(150),
+	allergy varchar2(150),
+	danger20 varchar2(300),
+	functional varchar2(150)
+);
+
+
+create table product(
+	pname varchar2(100) primary key,
+	category varchar2(30) not null,
+	brand varchar2(30) not null,
+	price number(6) not null,
+	capacity number(6) not null,
+	details varchar2(300) not null,
+	ingredient1 varchar(100) not null,
+	CONSTRAINT fk_component1
+	FOREIGN KEY (ingredient1)
+	REFERENCES component(cname),
+	ingredient2 varchar(100),
+	CONSTRAINT fk_component2
+	FOREIGN KEY (ingredient2)
+	REFERENCES component(cname),
+	ingredient3 varchar(100),
+	CONSTRAINT fk_component3
+	FOREIGN KEY (ingredient3)
+	REFERENCES component(cname),
+	ingredient4 varchar(100),
+	CONSTRAINT fk_component4
+	FOREIGN KEY (ingredient4)
+	REFERENCES component(cname),
+	ingredient5 varchar(100),
+	CONSTRAINT fk_component5
+	FOREIGN KEY (ingredient5)
+	REFERENCES component(cname),
+	ingredient6 varchar(100),
+	CONSTRAINT fk_component6
+	FOREIGN KEY (ingredient6)
+	REFERENCES component(cname),
+	ingredient7 varchar(100),
+	CONSTRAINT fk_component7
+	FOREIGN KEY (ingredient7)
+	REFERENCES component(cname),
+	ingredient8 varchar(100),
+	CONSTRAINT fk_component8
+	FOREIGN KEY (ingredient8)
+	REFERENCES component(cname),
+	ingredient9 varchar(100),
+	CONSTRAINT fk_component9
+	FOREIGN KEY (ingredient9)
+	REFERENCES component(cname),
+	ingredient10 varchar(100),
+	CONSTRAINT fk_component10
+	FOREIGN KEY (ingredient10)
+	REFERENCES component(cname),
+	ingredient11 varchar(100),
+	CONSTRAINT fk_component11
+	FOREIGN KEY (ingredient11)
+	REFERENCES component(cname),
+	ingredient12 varchar(100),
+	CONSTRAINT fk_component12
+	FOREIGN KEY (ingredient12)
+	REFERENCES component(cname),
+	ingredient13 varchar(100),
+	CONSTRAINT fk_component13
+	FOREIGN KEY (ingredient13)
+	REFERENCES component(cname),
+	ingredient14 varchar(100),
+	CONSTRAINT fk_component14
+	FOREIGN KEY (ingredient14)
+	REFERENCES component(cname),
+	ingredient15 varchar(100),
+	CONSTRAINT fk_component15
+	FOREIGN KEY (ingredient15)
+	REFERENCES component(cname),
+	ingredient16 varchar(100),
+	CONSTRAINT fk_component16
+	FOREIGN KEY (ingredient16)
+	REFERENCES component(cname),
+	ingredient17 varchar(100),
+	CONSTRAINT fk_component17
+	FOREIGN KEY (ingredient17)
+	REFERENCES component(cname),
+	ingredient18 varchar(100),
+	CONSTRAINT fk_component18
+	FOREIGN KEY (ingredient18)
+	REFERENCES component(cname),
+	ingredient19 varchar(100),
+	CONSTRAINT fk_component19
+	FOREIGN KEY (ingredient19)
+	REFERENCES component(cname),
+	ingredient20 varchar(100),
+	CONSTRAINT fk_component20
+	FOREIGN KEY (ingredient20)
+	REFERENCES component(cname),
+	ingredient21 varchar(100),
+	CONSTRAINT fk_component21
+	FOREIGN KEY (ingredient21)
+	REFERENCES component(cname),
+	ingredient22 varchar(100),
+	CONSTRAINT fk_component22
+	FOREIGN KEY (ingredient22)
+	REFERENCES component(cname),
+	ingredient23 varchar(100),
+	CONSTRAINT fk_component23
+	FOREIGN KEY (ingredient23)
+	REFERENCES component(cname),
+	ingredient24 varchar(100),
+	CONSTRAINT fk_component24
+	FOREIGN KEY (ingredient24)
+	REFERENCES component(cname),
+	ingredient25 varchar(100),
+	CONSTRAINT fk_component25
+	FOREIGN KEY (ingredient25)
+	REFERENCES component(cname),
+	ingredient26 varchar(100),
+	CONSTRAINT fk_component26
+	FOREIGN KEY (ingredient26)
+	REFERENCES component(cname),
+	ingredient27 varchar(100),
+	CONSTRAINT fk_component27
+	FOREIGN KEY (ingredient27)
+	REFERENCES component(cname),
+	ingredient28 varchar(100),
+	CONSTRAINT fk_component28
+	FOREIGN KEY (ingredient28)
+	REFERENCES component(cname),
+	ingredient29 varchar(100),
+	CONSTRAINT fk_component29
+	FOREIGN KEY (ingredient29)
+	REFERENCES component(cname),
+	ingredient30 varchar(100),
+	CONSTRAINT fk_component30
+	FOREIGN KEY (ingredient30)
+	REFERENCES component(cname),
+	ingredient31 varchar(100),
+	CONSTRAINT fk_component31
+	FOREIGN KEY (ingredient31)
+	REFERENCES component(cname),
+	ingredient32 varchar(100),
+	CONSTRAINT fk_component32
+	FOREIGN KEY (ingredient32)
+	REFERENCES component(cname),
+	ingredient33 varchar(100),
+	CONSTRAINT fk_component33
+	FOREIGN KEY (ingredient33)
+	REFERENCES component(cname),
+	ingredient34 varchar(100),
+	CONSTRAINT fk_component34
+	FOREIGN KEY (ingredient34)
+	REFERENCES component(cname),
+	ingredient35 varchar(100),
+	CONSTRAINT fk_component35
+	FOREIGN KEY (ingredient35)
+	REFERENCES component(cname),
+	ingredient36 varchar(100),
+	CONSTRAINT fk_component36
+	FOREIGN KEY (ingredient36)
+	REFERENCES component(cname),
+	ingredient37 varchar(100),
+	CONSTRAINT fk_component37
+	FOREIGN KEY (ingredient37)
+	REFERENCES component(cname),
+	ingredient38 varchar(100),
+	CONSTRAINT fk_component38
+	FOREIGN KEY (ingredient38)
+	REFERENCES component(cname),
+	ingredient39 varchar(100),
+	CONSTRAINT fk_component39
+	FOREIGN KEY (ingredient39)
+	REFERENCES component(cname),
+	ingredient40 varchar(100),
+	CONSTRAINT fk_component40
+	FOREIGN KEY (ingredient40)
+	REFERENCES component(cname),
+	ingredient41 varchar(100),
+	CONSTRAINT fk_component41
+	FOREIGN KEY (ingredient41)
+	REFERENCES component(cname),
+	ingredient42 varchar(100),
+	CONSTRAINT fk_component42
+	FOREIGN KEY (ingredient42)
+	REFERENCES component(cname),
+	ingredient43 varchar(100),
+	CONSTRAINT fk_component43
+	FOREIGN KEY (ingredient43)
+	REFERENCES component(cname),
+	ingredient44 varchar(100),
+	CONSTRAINT fk_component44
+	FOREIGN KEY (ingredient44)
+	REFERENCES component(cname),
+	ingredient45 varchar(100),
+	CONSTRAINT fk_component45
+	FOREIGN KEY (ingredient45)
+	REFERENCES component(cname),
+	ingredient46 varchar(100),
+	CONSTRAINT fk_component46
+	FOREIGN KEY (ingredient46)
+	REFERENCES component(cname),
+	ingredient47 varchar(100),
+	CONSTRAINT fk_component47
+	FOREIGN KEY (ingredient47)
+	REFERENCES component(cname),
+	ingredient48 varchar(100),
+	CONSTRAINT fk_component48
+	FOREIGN KEY (ingredient48)
+	REFERENCES component(cname),
+	ingredient49 varchar(100),
+	CONSTRAINT fk_component49
+	FOREIGN KEY (ingredient49)
+	REFERENCES component(cname),
+	ingredient50 varchar(100),
+	CONSTRAINT fk_component50
+	FOREIGN KEY (ingredient50)
+	REFERENCES component(cname),
+	ingredient51 varchar(100),
+	CONSTRAINT fk_component51
+	FOREIGN KEY (ingredient51)
+	REFERENCES component(cname),
+	ingredient52 varchar(100),
+	CONSTRAINT fk_component52
+	FOREIGN KEY (ingredient52)
+	REFERENCES component(cname),
+	ingredient53 varchar(100),
+	CONSTRAINT fk_component53
+	FOREIGN KEY (ingredient53)
+	REFERENCES component(cname),
+	ingredient54 varchar(100),
+	CONSTRAINT fk_component54
+	FOREIGN KEY (ingredient54)
+	REFERENCES component(cname),
+	ingredient55 varchar(100),
+	CONSTRAINT fk_component55
+	FOREIGN KEY (ingredient55)
+	REFERENCES component(cname),
+	ingredient56 varchar(100),
+	CONSTRAINT fk_component56
+	FOREIGN KEY (ingredient56)
+	REFERENCES component(cname)
+);
